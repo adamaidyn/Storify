@@ -7,17 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B808103E285AE2C7005AB39B /* CircularProgressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808103D285AE2C7005AB39B /* CircularProgressVC.swift */; };
+		B801004228648A9B00633A15 /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = B801004128648A9B00633A15 /* StoreKitTestCertificate.cer */; };
 		B8081040285C81D3005AB39B /* StorifyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808103F285C81D2005AB39B /* StorifyModel.swift */; };
-		B8081042285C8265005AB39B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8081041285C8265005AB39B /* HomeView.swift */; };
-		B84A57AE2852474600416B34 /* Paywall2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84A57AD2852474600416B34 /* Paywall2VC.swift */; };
-		B87ABCFE28570ED5004A9120 /* SubsOptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87ABCFD28570ED5004A9120 /* SubsOptionsVC.swift */; };
-		B87ABD0028571421004A9120 /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87ABCFF28571421004A9120 /* CollectionTableViewCell.swift */; };
-		B87ABD0228571A7E004A9120 /* TileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87ABD0128571A7E004A9120 /* TileCollectionViewCell.swift */; };
 		B87ABD042857434F004A9120 /* PlanOptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87ABD032857434F004A9120 /* PlanOptionsVC.swift */; };
-		B88824652851B23200D407FD /* PaywallVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88824642851B23200D407FD /* PaywallVC.swift */; };
 		B8913D6D28606D9000EC44EA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8913D6C28606D9000EC44EA /* StoreKit.framework */; };
+		B8913D772863013C00EC44EA /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = B8913D762863013C00EC44EA /* RevenueCat */; };
+		B8913D792863015500EC44EA /* Commented.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8913D782863015500EC44EA /* Commented.swift */; };
 		B8CC72FA2859825600F3B4FC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CC72F92859825600F3B4FC /* Constants.swift */; };
+		B8D5DF9328681C4000A46EAA /* HomeExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D5DF9228681C4000A46EAA /* HomeExt.swift */; };
+		B8D5DF9528681D2500A46EAA /* PlanOptionsExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D5DF9428681D2500A46EAA /* PlanOptionsExt.swift */; };
 		B8DBF1D32850D73C004934FE /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = B8DBF1D22850D73C004934FE /* Zip */; };
 		B8EFD14F284CED7000487347 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EFD14E284CED7000487347 /* AppDelegate.swift */; };
 		B8EFD151284CED7000487347 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EFD150284CED7000487347 /* SceneDelegate.swift */; };
@@ -29,17 +27,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B808103D285AE2C7005AB39B /* CircularProgressVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressVC.swift; sourceTree = "<group>"; };
+		B801004028648A1D00633A15 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		B801004128648A9B00633A15 /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = StoreKitTestCertificate.cer; path = "../../../../../../Downloads/Storify assets/StoreKitTestCertificate.cer"; sourceTree = "<group>"; };
 		B808103F285C81D2005AB39B /* StorifyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorifyModel.swift; sourceTree = "<group>"; };
-		B8081041285C8265005AB39B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		B84A57AD2852474600416B34 /* Paywall2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paywall2VC.swift; sourceTree = "<group>"; };
-		B87ABCFD28570ED5004A9120 /* SubsOptionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubsOptionsVC.swift; sourceTree = "<group>"; };
-		B87ABCFF28571421004A9120 /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableViewCell.swift; sourceTree = "<group>"; };
-		B87ABD0128571A7E004A9120 /* TileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileCollectionViewCell.swift; sourceTree = "<group>"; };
 		B87ABD032857434F004A9120 /* PlanOptionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanOptionsVC.swift; sourceTree = "<group>"; };
-		B88824642851B23200D407FD /* PaywallVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallVC.swift; sourceTree = "<group>"; };
 		B8913D6C28606D9000EC44EA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		B8913D782863015500EC44EA /* Commented.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commented.swift; sourceTree = "<group>"; };
 		B8CC72F92859825600F3B4FC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B8D5DF9228681C4000A46EAA /* HomeExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExt.swift; sourceTree = "<group>"; };
+		B8D5DF9428681D2500A46EAA /* PlanOptionsExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanOptionsExt.swift; sourceTree = "<group>"; };
 		B8EFD14B284CED7000487347 /* Storify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Storify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8EFD14E284CED7000487347 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8EFD150284CED7000487347 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +54,7 @@
 			files = (
 				B8DBF1D32850D73C004934FE /* Zip in Frameworks */,
 				B8913D6D28606D9000EC44EA /* StoreKit.framework in Frameworks */,
+				B8913D772863013C00EC44EA /* RevenueCat in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +64,7 @@
 		B87ABD0528574353004A9120 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B801004128648A9B00633A15 /* StoreKitTestCertificate.cer */,
 				B8CC72F92859825600F3B4FC /* Constants.swift */,
 			);
 			path = "Supporting Files";
@@ -83,12 +81,7 @@
 		B8CC72FB2859ED8900F3B4FC /* ScrappedFiles */ = {
 			isa = PBXGroup;
 			children = (
-				B87ABCFD28570ED5004A9120 /* SubsOptionsVC.swift */,
-				B88824642851B23200D407FD /* PaywallVC.swift */,
-				B84A57AD2852474600416B34 /* Paywall2VC.swift */,
-				B87ABCFF28571421004A9120 /* CollectionTableViewCell.swift */,
-				B87ABD0128571A7E004A9120 /* TileCollectionViewCell.swift */,
-				B808103D285AE2C7005AB39B /* CircularProgressVC.swift */,
+				B8913D782863015500EC44EA /* Commented.swift */,
 			);
 			path = ScrappedFiles;
 			sourceTree = "<group>";
@@ -116,12 +109,12 @@
 				B8EFD14E284CED7000487347 /* AppDelegate.swift */,
 				B8EFD150284CED7000487347 /* SceneDelegate.swift */,
 				B8EFD165284DE47000487347 /* Model */,
-				B8EFD166284DE47800487347 /* View */,
 				B8EFD167284DE47E00487347 /* Controller */,
 				B8EFD15A284CED7400487347 /* Assets.xcassets */,
 				B8EFD15C284CED7400487347 /* LaunchScreen.storyboard */,
 				B8EFD15F284CED7400487347 /* Info.plist */,
 				B8EFD157284CED7000487347 /* Storify.xcdatamodeld */,
+				B801004028648A1D00633A15 /* Configuration.storekit */,
 				B87ABD0528574353004A9120 /* Supporting Files */,
 				B8CC72FB2859ED8900F3B4FC /* ScrappedFiles */,
 			);
@@ -132,24 +125,18 @@
 			isa = PBXGroup;
 			children = (
 				B808103F285C81D2005AB39B /* StorifyModel.swift */,
+				B8D5DF9228681C4000A46EAA /* HomeExt.swift */,
+				B8D5DF9428681D2500A46EAA /* PlanOptionsExt.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		B8EFD166284DE47800487347 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				B8081041285C8265005AB39B /* HomeView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		B8EFD167284DE47E00487347 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				B8EFD152284CED7000487347 /* HomeVC.swift */,
-				B8EFD168284E317F00487347 /* SettingsVC.swift */,
 				B87ABD032857434F004A9120 /* PlanOptionsVC.swift */,
+				B8EFD168284E317F00487347 /* SettingsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -172,6 +159,7 @@
 			name = Storify;
 			packageProductDependencies = (
 				B8DBF1D22850D73C004934FE /* Zip */,
+				B8913D762863013C00EC44EA /* RevenueCat */,
 			);
 			productName = Storify;
 			productReference = B8EFD14B284CED7000487347 /* Storify.app */;
@@ -203,6 +191,7 @@
 			mainGroup = B8EFD142284CED7000487347;
 			packageReferences = (
 				B8DBF1D12850D73C004934FE /* XCRemoteSwiftPackageReference "Zip" */,
+				B8913D752863013C00EC44EA /* XCRemoteSwiftPackageReference "purchases-ios" */,
 			);
 			productRefGroup = B8EFD14C284CED7000487347 /* Products */;
 			projectDirPath = "";
@@ -220,6 +209,7 @@
 			files = (
 				B8EFD15E284CED7400487347 /* LaunchScreen.storyboard in Resources */,
 				B8EFD15B284CED7400487347 /* Assets.xcassets in Resources */,
+				B801004228648A9B00633A15 /* StoreKitTestCertificate.cer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,20 +220,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B87ABCFE28570ED5004A9120 /* SubsOptionsVC.swift in Sources */,
-				B808103E285AE2C7005AB39B /* CircularProgressVC.swift in Sources */,
 				B87ABD042857434F004A9120 /* PlanOptionsVC.swift in Sources */,
-				B8081042285C8265005AB39B /* HomeView.swift in Sources */,
-				B84A57AE2852474600416B34 /* Paywall2VC.swift in Sources */,
-				B88824652851B23200D407FD /* PaywallVC.swift in Sources */,
+				B8913D792863015500EC44EA /* Commented.swift in Sources */,
 				B8EFD159284CED7000487347 /* Storify.xcdatamodeld in Sources */,
 				B8EFD153284CED7000487347 /* HomeVC.swift in Sources */,
 				B8EFD14F284CED7000487347 /* AppDelegate.swift in Sources */,
 				B8081040285C81D3005AB39B /* StorifyModel.swift in Sources */,
-				B87ABD0228571A7E004A9120 /* TileCollectionViewCell.swift in Sources */,
 				B8EFD151284CED7000487347 /* SceneDelegate.swift in Sources */,
-				B87ABD0028571421004A9120 /* CollectionTableViewCell.swift in Sources */,
 				B8EFD169284E317F00487347 /* SettingsVC.swift in Sources */,
+				B8D5DF9328681C4000A46EAA /* HomeExt.swift in Sources */,
+				B8D5DF9528681D2500A46EAA /* PlanOptionsExt.swift in Sources */,
 				B8CC72FA2859825600F3B4FC /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,12 +377,13 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cherrydevs.Storify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -420,12 +407,13 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cherrydevs.Storify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -458,6 +446,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B8913D752863013C00EC44EA /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		B8DBF1D12850D73C004934FE /* XCRemoteSwiftPackageReference "Zip" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/marmelroy/Zip.git";
@@ -469,6 +465,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B8913D762863013C00EC44EA /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B8913D752863013C00EC44EA /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCat;
+		};
 		B8DBF1D22850D73C004934FE /* Zip */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B8DBF1D12850D73C004934FE /* XCRemoteSwiftPackageReference "Zip" */;

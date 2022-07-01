@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import StoreKit
+import RevenueCat
 
 class SettingsVC: UIViewController {
     
@@ -17,27 +17,9 @@ class SettingsVC: UIViewController {
         return view
     }()
     
-    let settingsNames1 = [
-        "Rate App",
-        "Restore Purchases",
-        "Subscriptions"
-    ]
+    private var planOptionsVC = PlanOptionsVC()
     
-    let settingsNames2 = [
-        "Privacy policy",
-        "Terms & Conditions"
-    ]
-    
-    let imageSet1 = [
-        UIImage(systemName: "star"),
-        UIImage(systemName: "dollarsign.circle"),
-        UIImage(systemName: "cart.badge.plus")
-    ]
-    
-    let imageSet2 = [
-        UIImage(systemName: "person.fill.viewfinder"),
-        UIImage(systemName: "doc.text")
-    ]
+    var storifyModel = StorifyModel()
     
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +31,12 @@ class SettingsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(settingsTableView)
+    
+        overrideUserInterfaceStyle = .dark
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
         settingsTableView.backgroundColor = K.UnifiedColors.darkGray
         settingsTableView.frame = view.bounds
@@ -56,8 +44,6 @@ class SettingsVC: UIViewController {
         settingsTableView.dataSource = self
         settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "SettingsCell")
         settingsTableView.isScrollEnabled = false
-        
-        overrideUserInterfaceStyle = .dark
         
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
@@ -83,17 +69,18 @@ extension SettingsVC {
 
 // MARK: - TableView Delegate & Datasource
 extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return settingsNames1.count
+            return storifyModel.settingsNames1.count
         case 1:
-            return settingsNames2.count
+            return storifyModel.settingsNames2.count
+        case 2:
+            return storifyModel.settingsNames3.count
         default:
             return 0
         }
@@ -108,11 +95,14 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
         
         switch indexPath.section {
         case 0:
-            content.text = settingsNames1[indexPath.row]
-            content.image = imageSet1[indexPath.row]
+            content.text = storifyModel.settingsNames1[indexPath.row]
+            content.image = storifyModel.imageSet1[indexPath.row]
         case 1:
-            content.text = settingsNames2[indexPath.row]
-            content.image = imageSet2[indexPath.row]
+            content.text = storifyModel.settingsNames2[indexPath.row]
+            content.image = storifyModel.imageSet2[indexPath.row]
+        case 2:
+            content.text = storifyModel.settingsNames3[indexPath.row]
+            content.image = storifyModel.imageSet3[indexPath.row]
         default:
             content.text = "Error"
         }
@@ -131,25 +121,38 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
         case 0:
             switch indexPath.row {
             case 0:
-                openWebPage(webpageUrl: "https://apps.apple.com/app/storify-zip-photos-videos/id1628718718")
+                openWebPage(webpageUrl: K.VariablesIDs.reviewAppLink)
             case 1:
-                SKPaymentQueue.default().restoreCompletedTransactions() // Restores purchases
+                planOptionsVC.restorePurchases()
             case 2:
-                print(indexPath.row)
+                let rootVC = PlanOptionsVC()
+                let navVC = UINavigationController(rootViewController: rootVC)
+                navVC.modalPresentationStyle = .automatic
+                rootVC.ifComingFromHome = false
+                present(navVC, animated: true)
             default:
                 print("error")
             }
         case 1:
             switch indexPath.row {
             case 0:
-                openWebPage(webpageUrl: "https://www.cherrydevs.com/privacy")
+                openWebPage(webpageUrl: K.VariablesIDs.privacyWebPage)
             case 1:
-                openWebPage(webpageUrl: "https://www.cherrydevs.com/terms-conditions")
+                openWebPage(webpageUrl: K.VariablesIDs.termsWebPage)
+            case 2:
+                openWebPage(webpageUrl: K.VariablesIDs.supportWebPage)
+            default:
+                print("error")
+            }
+        case 2:
+            switch indexPath.row {
+            case 0:
+                print("There's nothing, yet...")
             default:
                 print("error")
             }
         default:
-            print("errorR")
+            print("error")
         }
     }
     
