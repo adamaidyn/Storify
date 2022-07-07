@@ -87,7 +87,6 @@ extension HomeVC {
             print(zipFilePath)
             
             try Zip.zipFiles(paths: pathr, zipFilePath: zipFilePath, password: nil, compression: .BestCompression, progress: {  progress in
-                
                 if progress == 1.0 {
                     DispatchQueue.main.async {
                         self.updatedProgress = progress
@@ -212,15 +211,22 @@ extension HomeVC {
 // MARK: - Navigation Bar config
 extension HomeVC {
     func configureNavBarButtons() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "gearshape"),
             style: .plain,
             target: self,
             action: #selector(didTapSettingsBarButton)
         )
-        navigationItem.rightBarButtonItem?.tintColor = K.UnifiedColors.greenColor
+        navigationItem.leftBarButtonItem?.tintColor = K.UnifiedColors.greenColor
         
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
+    }
+}
+public extension URL {
+
+    var fileSize: Int? {
+        let value = try? resourceValues(forKeys: [.fileSizeKey])
+        return value?.fileSize
     }
 }

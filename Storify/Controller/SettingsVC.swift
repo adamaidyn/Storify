@@ -25,7 +25,7 @@ class SettingsVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureNavBarButtons()
-        title = "Settings"
+        title = K.TextLabels.settingsTitle
     }
     
     override func viewDidLoad() {
@@ -42,7 +42,7 @@ class SettingsVC: UIViewController {
         settingsTableView.frame = view.bounds
         settingsTableView.delegate = self
         settingsTableView.dataSource = self
-        settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "SettingsCell")
+        settingsTableView.register(UITableViewCell.self, forCellReuseIdentifier: K.VariablesIDs.settingsTableViewCellID)
         settingsTableView.isScrollEnabled = false
         
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
@@ -87,7 +87,7 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = settingsTableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath)
+        let cell = settingsTableView.dequeueReusableCell(withIdentifier: K.VariablesIDs.settingsTableViewCellID, for: indexPath)
         
         var content = cell.defaultContentConfiguration()
         
@@ -120,16 +120,16 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             switch indexPath.row {
-            case 0:
+            case 0: // Review app link on App Store
                 openWebPage(webpageUrl: K.VariablesIDs.reviewAppLink)
-            case 1:
-                planOptionsVC.restorePurchases()
-            case 2:
+            case 1: // Plan options View
                 let rootVC = PlanOptionsVC()
                 let navVC = UINavigationController(rootViewController: rootVC)
                 navVC.modalPresentationStyle = .automatic
                 rootVC.ifComingFromHome = false
                 present(navVC, animated: true)
+            case 2: // Testore Purchase
+                planOptionsVC.restorePurchases()
             default:
                 print("error")
             }
@@ -147,7 +147,7 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
         case 2:
             switch indexPath.row {
             case 0:
-                print("There's nothing, yet...")
+                print("There's nothing, yet...") // Current App version
             default:
                 print("error")
             }

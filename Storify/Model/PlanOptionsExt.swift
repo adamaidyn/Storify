@@ -7,6 +7,7 @@
 
 import UIKit
 import RevenueCat
+import StoreKit
 
 // MARK: - Constraints
 extension PlanOptionsVC {
@@ -14,6 +15,8 @@ extension PlanOptionsVC {
         var contraints = [NSLayoutConstraint]()
         
         let layout = view.layoutMarginsGuide
+        
+        let currentUIScreenSize = UIScreen.main.bounds.width
         
         contraints.append(titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor))
         contraints.append(titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 15)) // CGFloat 25
@@ -43,12 +46,19 @@ extension PlanOptionsVC {
         contraints.append(planTermsLabel.trailingAnchor.constraint(equalTo: layout.trailingAnchor))
         contraints.append(planTermsLabel.centerXAnchor.constraint(equalTo: layout.centerXAnchor))
         
-        contraints.append(restorePurchasesButton.centerXAnchor.constraint(equalTo: layout.centerXAnchor))
-        contraints.append(restorePurchasesButton.bottomAnchor.constraint(equalTo: layout.bottomAnchor))
-        contraints.append(restorePurchasesButton.heightAnchor.constraint(equalToConstant: 100))
-        contraints.append(restorePurchasesButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40))
-        contraints.append(restorePurchasesButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40))
-    
+        if currentUIScreenSize == 320 {
+            contraints.append(restorePurchasesButton.centerXAnchor.constraint(equalTo: layout.centerXAnchor))
+            contraints.append(restorePurchasesButton.bottomAnchor.constraint(equalTo: layout.bottomAnchor))
+            contraints.append(restorePurchasesButton.heightAnchor.constraint(equalToConstant: 50))
+            contraints.append(restorePurchasesButton.widthAnchor.constraint(equalToConstant: 200))
+        } else {
+            contraints.append(restorePurchasesButton.centerXAnchor.constraint(equalTo: layout.centerXAnchor))
+            contraints.append(restorePurchasesButton.bottomAnchor.constraint(equalTo: layout.bottomAnchor))
+            contraints.append(restorePurchasesButton.heightAnchor.constraint(equalToConstant: 100))
+            contraints.append(restorePurchasesButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40))
+            contraints.append(restorePurchasesButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40))
+        }
+
         contraints.append(subscribedBackView.leadingAnchor.constraint(equalTo: layout.leadingAnchor))
         contraints.append(subscribedBackView.trailingAnchor.constraint(equalTo: layout.trailingAnchor))
         contraints.append(subscribedBackView.topAnchor.constraint(equalTo: planDescriptionLabel.bottomAnchor, constant: computedSize(num: 16)))
@@ -66,6 +76,7 @@ extension PlanOptionsVC {
         contraints.append(discountLabel.trailingAnchor.constraint(equalTo: discountImageView.trailingAnchor))
         contraints.append(discountLabel.topAnchor.constraint(equalTo: discountImageView.topAnchor))
         contraints.append(discountLabel.bottomAnchor.constraint(equalTo: discountImageView.bottomAnchor, constant: -10))
+        
         
         NSLayoutConstraint.activate(contraints)
     }
@@ -154,7 +165,7 @@ extension PlanOptionsVC {
                         
             guard let _ = offerings.current?.availablePackages[0] else { return }
             
-            guard let yearlyPackage = offerings.offering(identifier: "Offerings")?.availablePackages[1] else { return }
+            guard let yearlyPackage = offerings.offering(identifier: "Offerings")?.availablePackages[0] else { return }
             
             print("Yearly available package \(yearlyPackage)")
             
@@ -209,15 +220,13 @@ extension PlanOptionsVC {
             self?.unlockFeatures()
             
             if info.entitlements.all[K.RevenueCatIDs.monthlyEntitlementID]?.isActive == true || info.entitlements.all[K.RevenueCatIDs.yearlyEntitlementID]?.isActive == true {
-                
+ 
                 if self?.ifComingFromHome == true {
-//                    self?.presentAlert(title: "Success", message: "You've restored your subscripton!")
-                    
                     self?.paymentDispatchGroup.leave()
-                    
                     self?.dismiss(animated: true)
-                    
                 }
+            } else {
+                
             }
         }
     }
@@ -260,7 +269,7 @@ extension PlanOptionsVC {
                     
                     self?.monthlyPlanButton.configuration = self?.returnButtonConfig(
                         title: "Try 3 days free",
-                        subtitle: "Then Monthly - 3.99$",
+                        subtitle: "Then Monthly - $3.99",
                         buttonStyle: .filled(),
                         color: K.UnifiedColors.darkWhite,
                         showIndicator: false
@@ -268,7 +277,7 @@ extension PlanOptionsVC {
                     
                     self?.yearlyPlanButton.configuration = self?.returnButtonConfig(
                         title: "Try 3 days free",
-                        subtitle: "Then Yearly - 29.99$",
+                        subtitle: "Then Yearly - $29.99",
                         buttonStyle: .filled(),
                         color: K.UnifiedColors.darkWhite,
                         showIndicator: false

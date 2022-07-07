@@ -43,6 +43,8 @@ class HomeVC: UIViewController {
     
     let hapticFeedBack2 = UIImpactFeedbackGenerator()
     
+    var overallFilesSize: Double = 0.0
+    
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -107,7 +109,7 @@ class HomeVC: UIViewController {
     
     private func showPhotoLibrary() {
         var config = PHPickerConfiguration()
-        config.selectionLimit = 20
+        config.selectionLimit = 50
         config.filter = .any(of: [.videos, .images])
         
         let picker = PHPickerViewController(configuration: config)
@@ -145,8 +147,8 @@ class HomeVC: UIViewController {
         let basicAnimation = CABasicAnimation(keyPath: K.TextLabels.animationKeypath)
         
         animationDispatchGroup.enter()
-        basicAnimation.toValue = 0.75
-        basicAnimation.duration = 100
+        basicAnimation.toValue = 0.77
+        basicAnimation.duration = 200
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.isRemovedOnCompletion = false
         
@@ -160,6 +162,21 @@ class HomeVC: UIViewController {
                 self.shapeLayer.add(basicAnimation, forKey:  K.TextLabels.shapeLayerKey)
             }
         }
+    }
+    
+    func sizePerMB(url: URL?) -> Double {
+        guard let filePath = url?.path else {
+            return 0.0
+        }
+        do {
+            let attribute = try FileManager.default.attributesOfItem(atPath: filePath)
+            if let size = attribute[FileAttributeKey.size] as? NSNumber {
+                return size.doubleValue / 1000000.0
+            }
+        } catch {
+            print("Error: \(error)")
+        }
+        return 0.0
     }
 }
 // MARK: - UIButton config

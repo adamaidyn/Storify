@@ -172,3 +172,30 @@ import Foundation
 //        navigationItem.leftBarButtonItem?.tintColor = K.UnifiedColors.greenColor
 
 //                rootVC.comingFromDefaults.set(false, forKey: "ComingFromPicker")
+
+//        Purchases.debugLogsEnabled = true
+
+//func displayProductsPrice(_ duration: String) -> String {
+//    var price: String = ""
+//    Purchases.shared.getOfferings { offerings, error in
+//        if duration == "Monthly" {
+//            guard let monthlyPackage = offerings?.offering(identifier: "Offerings")?.availablePackages[0].storeProduct else { return }
+//            
+//            price = monthlyPackage.localizedPriceString
+//            
+//        } else if duration == "Yearly" {
+//            guard let yearlyPackage = offerings?.offering(identifier: "Offerings")?.availablePackages[1].storeProduct else { return }
+//            
+//            price = yearlyPackage.localizedPriceString
+//        }
+//    }
+//    return price
+//}
+
+
+//for i in URLFiles {
+//    overallFilesSize += sizePerMB(url: i)
+//}
+
+
+//var overallFilesSize: Double = 0.0

@@ -146,6 +146,8 @@ class PlanOptionsVC: UIViewController {
     
     var ifComingFromHome: Bool = false
     
+    let product = SKProduct()
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -198,7 +200,6 @@ class PlanOptionsVC: UIViewController {
         )
         
         navigationItem.rightBarButtonItem?.tintColor = K.UnifiedColors.greenColor
-        
     }
     
     override func viewDidLayoutSubviews() {

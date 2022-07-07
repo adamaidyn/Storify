@@ -27,6 +27,7 @@ struct K {
         static let restorePurchaseText = "Restore Purchases"
         static let subscribedText = "You're Subscribed!"
         static let discountText = "37% OFF"
+        static let settingsTitle = "Settings"
     }
     struct AssetsNames {
         static let illustrationImageName = "FrontPageLogo"
@@ -35,6 +36,7 @@ struct K {
     }
     
     struct RevenueCatIDs {
+        static let RevenueCatApiKey = "appl_EREgBWXhkdedZvNohfeaSkAQQRH"
         static let offeringsID = "Offerings"
         static let monthlyEntitlementID = "Monthly Premium"
         static let yearlyEntitlementID = "Yearly Premium"
@@ -42,10 +44,10 @@ struct K {
     
     struct VariablesIDs {
         static let planOptionsUserDefaultsKey = "SubscriptionIsActive"
-        static let supportWebPage = "https://www.cherrydevs.com/support"
-        static let privacyWebPage = "https://www.cherrydevs.com/privacy"
-        static let termsWebPage = "https://www.cherrydevs.com/terms-conditions"
+        static let supportWebPage = "https://sites.google.com/view/cherrydevs/support"
+        static let privacyWebPage = "https://sites.google.com/view/cherrydevs/privacy"
+        static let termsWebPage = "https://sites.google.com/view/cherrydevs/terms-conditions"
         static let reviewAppLink = "https://apps.apple.com/app/storify-zip-photos-videos/id1628718718?action=write-review"
-        
+        static let settingsTableViewCellID = "SettingsCell"
     }
 }

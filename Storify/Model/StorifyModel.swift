@@ -12,8 +12,8 @@ struct StorifyModel {
     // MARK: - Settings data for TbaleViews
     let settingsNames1 = [
         "Rate App",
-        "Restore Purchases",
-        "Subscriptions"
+        "Subscriptions",
+        "Restore Purchases"
     ]
     
     let settingsNames2 = [
