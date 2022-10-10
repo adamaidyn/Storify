@@ -1,4 +1,4 @@
-# Storify
+# Storify - Archive Photos & Videos
 Storify - Archive Photos &amp; Videos repo
 
 Hi! This is my app project which I made with Swift and UIKit.
