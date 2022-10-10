@@ -40,7 +40,7 @@
               "locale" : "en_US"
             }
           ],
-          "productID" : "Storify_Yearly_Sub_101",
+          "productID" : "",
           "recurringSubscriptionPeriod" : "P1Y",
           "referenceName" : "Yearly Premium",
           "subscriptionGroupID" : "14A11C08",

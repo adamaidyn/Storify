@@ -91,7 +91,7 @@ extension PlanOptionsVC {
         config.showsActivityIndicator = showIndicator
         
         var container = AttributeContainer()
-        container.font = UIFont.systemFont(ofSize: computedSize(num: 16), weight: .medium) // CGFloat 20
+        container.font = UIFont.systemFont(ofSize: computedSize(num: 17), weight: .medium) // CGFloat 20
         
         var container2 = AttributeContainer()
         container2.font = UIFont.systemFont(ofSize: computedSize(num: 20), weight: .regular) // CGFloat 16
@@ -151,9 +151,9 @@ extension PlanOptionsVC {
         Purchases.shared.getOfferings { offerings, error in
             guard let offerings = offerings, error == nil else { return }
             
-            guard let _ = offerings.all.first?.value.availablePackages.first else { return } // Monthly package
+            guard let _ = offerings.all.first?.value.availablePackages.first else { return }
             
-            guard let monthlyPackage = offerings.offering(identifier: "Offerings")?.availablePackages[0] else { return }
+            guard let monthlyPackage = offerings.offering(identifier: Identifiers.RevenueCatIDs.offeringsID)?.availablePackages[0] else { return } // Monthly package
             
             completion(monthlyPackage)
         }
@@ -165,7 +165,7 @@ extension PlanOptionsVC {
                         
             guard let _ = offerings.current?.availablePackages[0] else { return }
             
-            guard let yearlyPackage = offerings.offering(identifier: "Offerings")?.availablePackages[0] else { return }
+            guard let yearlyPackage = offerings.offering(identifier: Identifiers.RevenueCatIDs.offeringsID)?.availablePackages[1] else { return } // Yearly package
             
             print("Yearly available package \(yearlyPackage)")
             
@@ -183,16 +183,16 @@ extension PlanOptionsVC {
             if userCancelled == true || error != nil {
                 DispatchQueue.main.async {
                     self?.monthlyPlanButton.configuration = self?.returnButtonConfig(
-                        title: "Try 3 days free",
-                        subtitle: "Then Monthly - 3.99$",
+                        title: K.TextLabels.packageTitle,
+                        subtitle: K.TextLabels.monthlySubstitle,
                         buttonStyle: .filled(),
                         color: K.UnifiedColors.darkWhite,
                         showIndicator: false
                     )
                 
                     self?.yearlyPlanButton.configuration = self?.returnButtonConfig(
-                        title: "Try 3 days free",
-                        subtitle: "Then Yearly - 29.99$",
+                        title: K.TextLabels.packageTitle,
+                        subtitle: K.TextLabels.yearlySubtitle,
                         buttonStyle: .filled(),
                         color: K.UnifiedColors.darkWhite,
                         showIndicator: false
@@ -204,7 +204,7 @@ extension PlanOptionsVC {
                 self?.paymentDispatchGroup.leave()
             }
             
-            if info?.entitlements[K.RevenueCatIDs.yearlyEntitlementID]?.isActive == true || info?.entitlements[K.RevenueCatIDs.monthlyEntitlementID]?.isActive == true {
+            if info?.entitlements[Identifiers.RevenueCatIDs.yearlyEntitlementID]?.isActive == true || info?.entitlements[Identifiers.RevenueCatIDs.monthlyEntitlementID]?.isActive == true {
                 self?.unlockFeatures()
                 
                 self?.dismiss(animated: true)
@@ -219,7 +219,7 @@ extension PlanOptionsVC {
             
             self?.unlockFeatures()
             
-            if info.entitlements.all[K.RevenueCatIDs.monthlyEntitlementID]?.isActive == true || info.entitlements.all[K.RevenueCatIDs.yearlyEntitlementID]?.isActive == true {
+            if info.entitlements.all[Identifiers.RevenueCatIDs.monthlyEntitlementID]?.isActive == true || info.entitlements.all[Identifiers.RevenueCatIDs.monthlyEntitlementID]?.isActive == true {
  
                 if self?.ifComingFromHome == true {
                     self?.paymentDispatchGroup.leave()
@@ -237,7 +237,7 @@ extension PlanOptionsVC {
             guard let info = info, error == nil else { return }
             
             // Monthly sub is active
-            if info.entitlements.all[K.RevenueCatIDs.monthlyEntitlementID]?.isActive == true {
+            if info.entitlements.all[Identifiers.RevenueCatIDs.monthlyEntitlementID]?.isActive == true {
                 self?.planOptionsUserDefaults.set(true, forKey: K.VariablesIDs.planOptionsUserDefaultsKey)
                 
                 DispatchQueue.main.async {
@@ -249,7 +249,7 @@ extension PlanOptionsVC {
                     self?.subscribedLabel.isHidden = false
                 }
                 // Yearly sub is active
-            } else if info.entitlements.all[K.RevenueCatIDs.yearlyEntitlementID]?.isActive == true {
+            } else if info.entitlements.all[Identifiers.RevenueCatIDs.yearlyEntitlementID]?.isActive == true {
                 self?.planOptionsUserDefaults.set(true, forKey: K.VariablesIDs.planOptionsUserDefaultsKey)
                 
                 DispatchQueue.main.async {
@@ -268,16 +268,16 @@ extension PlanOptionsVC {
                     print("Sub isn't activated")
                     
                     self?.monthlyPlanButton.configuration = self?.returnButtonConfig(
-                        title: "Try 3 days free",
-                        subtitle: "Then Monthly - $3.99",
+                        title: K.TextLabels.packageTitle,
+                        subtitle: K.TextLabels.monthlySubstitle,
                         buttonStyle: .filled(),
                         color: K.UnifiedColors.darkWhite,
                         showIndicator: false
                     )
                     
                     self?.yearlyPlanButton.configuration = self?.returnButtonConfig(
-                        title: "Try 3 days free",
-                        subtitle: "Then Yearly - $29.99",
+                        title: K.TextLabels.packageTitle,
+                        subtitle: K.TextLabels.yearlySubtitle,
                         buttonStyle: .filled(),
                         color: K.UnifiedColors.darkWhite,
                         showIndicator: false

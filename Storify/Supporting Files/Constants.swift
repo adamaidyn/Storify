@@ -28,6 +28,10 @@ struct K {
         static let subscribedText = "You're Subscribed!"
         static let discountText = "37% OFF"
         static let settingsTitle = "Settings"
+         
+        static let packageTitle = "Free for 3 days"
+        static let monthlySubstitle = "Then Monthly - $3.99"
+        static let yearlySubtitle = "Then Yearly - $29.99"
     }
     struct AssetsNames {
         static let illustrationImageName = "FrontPageLogo"
@@ -35,12 +39,6 @@ struct K {
         static let ribbonImageName = "ribbon"
     }
     
-    struct RevenueCatIDs {
-        static let RevenueCatApiKey = "appl_EREgBWXhkdedZvNohfeaSkAQQRH"
-        static let offeringsID = "Offerings"
-        static let monthlyEntitlementID = "Monthly Premium"
-        static let yearlyEntitlementID = "Yearly Premium"
-    }
     
     struct VariablesIDs {
         static let planOptionsUserDefaultsKey = "SubscriptionIsActive"

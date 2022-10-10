@@ -168,8 +168,8 @@ class PlanOptionsVC: UIViewController {
         overrideUserInterfaceStyle = .dark
         
         monthlyPlanButton.configuration = returnButtonConfig(
-            title: "Try 3 days free",
-            subtitle: "Then Monthly - 3.99$",
+            title: K.TextLabels.packageTitle,
+            subtitle: K.TextLabels.monthlySubstitle,
             buttonStyle: .filled(),
             color: K.UnifiedColors.darkWhite,
             showIndicator: false
@@ -177,8 +177,8 @@ class PlanOptionsVC: UIViewController {
         monthlyPlanButton.addTarget(self, action: #selector(didTapMonthly), for: .touchUpInside)
         
         yearlyPlanButton.configuration = returnButtonConfig(
-            title: "Try 3 days free",
-            subtitle: "Then Yearly - 29.99$",
+            title: K.TextLabels.packageTitle,
+            subtitle: K.TextLabels.yearlySubtitle,
             buttonStyle: .filled(),
             color: K.UnifiedColors.darkWhite,
             showIndicator: false

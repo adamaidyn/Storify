@@ -45,6 +45,8 @@ class HomeVC: UIViewController {
     
     var overallFilesSize: Double = 0.0
     
+    var userDefaults = UserDefaults.standard
+    
     // MARK: - Life Cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -73,6 +75,8 @@ class HomeVC: UIViewController {
         illustrationImageView.isHidden = false
         
         selectPicsVidsButton.addTarget(self, action: #selector(selectPicsVidsButtonTapped), for: .touchUpInside)
+        
+        userDefaults.set(5, forKey: "FreeTries")
     }
     
     override func viewDidLayoutSubviews() {
@@ -103,14 +107,61 @@ class HomeVC: UIViewController {
         present(navVC, animated: true)
     }
     
+    @objc func didTapRightBarButton() {
+        navigationItem.rightBarButtonItem?.image = updateTries()
+    }
+    
     @objc func selectPicsVidsButtonTapped() {
         showPhotoLibrary()
+    }
+    
+    private func updateTries() -> UIImage {
+        if userDefaults.integer(forKey: "FreeTries") == 0 {
+            let rootVC = PlanOptionsVC()
+            let navVC = UINavigationController(rootViewController: rootVC)
+            navVC.modalPresentationStyle = .automatic
+            
+            rootVC.ifComingFromHome = false
+            
+            hapticFeedBack2.impactOccurred(intensity: 0.7)
+            
+            present(navVC, animated: true)
+        }
+        switch navigationItem.rightBarButtonItem?.image {
+        case UIImage(systemName: "5.circle"):
+            userDefaults.set(4, forKey: "FreeTries")
+            return UIImage(systemName: "4.circle")!
+        case UIImage(systemName: "4.circle"):
+            userDefaults.set(3, forKey: "FreeTries")
+            return UIImage(systemName: "3.circle")!
+        case UIImage(systemName: "3.circle"):
+            userDefaults.set(2, forKey: "FreeTries")
+            return UIImage(systemName: "2.circle")!
+        case UIImage(systemName: "2.circle"):
+            userDefaults.set(1, forKey: "FreeTries")
+            return UIImage(systemName: "1.circle")!
+        case UIImage(systemName: "1.circle"):
+            userDefaults.set(0, forKey: "FreeTries")
+            
+            let rootVC = PlanOptionsVC()
+            let navVC = UINavigationController(rootViewController: rootVC)
+            navVC.modalPresentationStyle = .automatic
+            
+            rootVC.ifComingFromHome = false
+            
+            hapticFeedBack2.impactOccurred(intensity: 0.7)
+            
+            present(navVC, animated: true)
+            return UIImage(systemName: "0.circle")!
+        default:
+            return UIImage(systemName: "5.circle")!
+        }
     }
     
     private func showPhotoLibrary() {
         var config = PHPickerConfiguration()
         config.selectionLimit = 50
-        config.filter = .any(of: [.videos, .images])
+        config.filter = .any(of: [.videos, .images, .livePhotos])
         
         let picker = PHPickerViewController(configuration: config)
         picker.delegate = self
@@ -162,21 +213,6 @@ class HomeVC: UIViewController {
                 self.shapeLayer.add(basicAnimation, forKey:  K.TextLabels.shapeLayerKey)
             }
         }
-    }
-    
-    func sizePerMB(url: URL?) -> Double {
-        guard let filePath = url?.path else {
-            return 0.0
-        }
-        do {
-            let attribute = try FileManager.default.attributesOfItem(atPath: filePath)
-            if let size = attribute[FileAttributeKey.size] as? NSNumber {
-                return size.doubleValue / 1000000.0
-            }
-        } catch {
-            print("Error: \(error)")
-        }
-        return 0.0
     }
 }
 // MARK: - UIButton config

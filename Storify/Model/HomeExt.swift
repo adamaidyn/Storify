@@ -40,6 +40,7 @@ extension HomeVC: PHPickerViewControllerDelegate {
                                 dispatchGroup.leave()
                             } catch {
                                 print(error.localizedDescription)
+                                self?.presentAlert(title: "Error Occured", message: error.localizedDescription)
                                 dispatchGroup.leave()
                             }
                         }
@@ -54,6 +55,7 @@ extension HomeVC: PHPickerViewControllerDelegate {
                                 dispatchGroup.leave()
                             } catch {
                                 print(error.localizedDescription)
+                                self?.presentAlert(title: "Error Occured", message: error.localizedDescription)
                                 dispatchGroup.leave()
                             }
                         }
@@ -82,7 +84,7 @@ extension HomeVC {
     private func zipFile(pathr: [URL]) {
         let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         do {
-            let zipFilePath = documentDirectory.appendingPathComponent("archive_13579.zip")
+            let zipFilePath = documentDirectory.appendingPathComponent("Archive.zip")
             
             print(zipFilePath)
             
@@ -113,6 +115,7 @@ extension HomeVC {
         }
         catch {
             print("Something went wrong - \(error.localizedDescription)")
+            presentAlert(title: "Error Occured", message: error.localizedDescription)
         }
     }
     
@@ -219,6 +222,13 @@ extension HomeVC {
         )
         navigationItem.leftBarButtonItem?.tintColor = K.UnifiedColors.greenColor
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "5.circle"),
+            style: .done,
+            target: self,
+            action: #selector(didTapRightBarButton))
+        navigationItem.rightBarButtonItem?.tintColor = K.UnifiedColors.greenColor
+        
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
@@ -229,4 +239,21 @@ public extension URL {
         let value = try? resourceValues(forKeys: [.fileSizeKey])
         return value?.fileSize
     }
+}
+extension HomeVC {
+        func presentAlert(title: String, message: String) {
+            // create the alert
+            let alert = UIAlertController(
+                title: title,
+                message: message,
+                preferredStyle: UIAlertController.Style.alert
+            )
+    
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+    
+            // show the alert
+            present(alert, animated: true, completion: nil)
+        }
+
 }

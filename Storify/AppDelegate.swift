@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        Purchases.configure(withAPIKey: K.RevenueCatIDs.RevenueCatApiKey)
+        Purchases.configure(withAPIKey: Identifiers.RevenueCatIDs.RevenueCatApiKey)
         
         return true
     }

@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		B801004228648A9B00633A15 /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = B801004128648A9B00633A15 /* StoreKitTestCertificate.cer */; };
 		B8081040285C81D3005AB39B /* StorifyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808103F285C81D2005AB39B /* StorifyModel.swift */; };
+		B852FC1C28939A5200F1FE2B /* WelcomeScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B852FC1B28939A5200F1FE2B /* WelcomeScreenVC.swift */; };
 		B87ABD042857434F004A9120 /* PlanOptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87ABD032857434F004A9120 /* PlanOptionsVC.swift */; };
+		B88D037528F3E4B000EA0D00 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88D037428F3E4B000EA0D00 /* Identifiers.swift */; };
 		B8913D6D28606D9000EC44EA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8913D6C28606D9000EC44EA /* StoreKit.framework */; };
 		B8913D772863013C00EC44EA /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = B8913D762863013C00EC44EA /* RevenueCat */; };
 		B8913D792863015500EC44EA /* Commented.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8913D782863015500EC44EA /* Commented.swift */; };
@@ -30,7 +32,9 @@
 		B801004028648A1D00633A15 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		B801004128648A9B00633A15 /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = StoreKitTestCertificate.cer; path = "../../../../../../Downloads/Storify assets/StoreKitTestCertificate.cer"; sourceTree = "<group>"; };
 		B808103F285C81D2005AB39B /* StorifyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorifyModel.swift; sourceTree = "<group>"; };
+		B852FC1B28939A5200F1FE2B /* WelcomeScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenVC.swift; sourceTree = "<group>"; };
 		B87ABD032857434F004A9120 /* PlanOptionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanOptionsVC.swift; sourceTree = "<group>"; };
+		B88D037428F3E4B000EA0D00 /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		B8913D6C28606D9000EC44EA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		B8913D782863015500EC44EA /* Commented.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commented.swift; sourceTree = "<group>"; };
 		B8CC72F92859825600F3B4FC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -66,6 +70,7 @@
 			children = (
 				B801004128648A9B00633A15 /* StoreKitTestCertificate.cer */,
 				B8CC72F92859825600F3B4FC /* Constants.swift */,
+				B88D037428F3E4B000EA0D00 /* Identifiers.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 				B8EFD152284CED7000487347 /* HomeVC.swift */,
 				B87ABD032857434F004A9120 /* PlanOptionsVC.swift */,
 				B8EFD168284E317F00487347 /* SettingsVC.swift */,
+				B852FC1B28939A5200F1FE2B /* WelcomeScreenVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -225,9 +231,11 @@
 				B8EFD159284CED7000487347 /* Storify.xcdatamodeld in Sources */,
 				B8EFD153284CED7000487347 /* HomeVC.swift in Sources */,
 				B8EFD14F284CED7000487347 /* AppDelegate.swift in Sources */,
+				B852FC1C28939A5200F1FE2B /* WelcomeScreenVC.swift in Sources */,
 				B8081040285C81D3005AB39B /* StorifyModel.swift in Sources */,
 				B8EFD151284CED7000487347 /* SceneDelegate.swift in Sources */,
 				B8EFD169284E317F00487347 /* SettingsVC.swift in Sources */,
+				B88D037528F3E4B000EA0D00 /* Identifiers.swift in Sources */,
 				B8D5DF9328681C4000A46EAA /* HomeExt.swift in Sources */,
 				B8D5DF9528681D2500A46EAA /* PlanOptionsExt.swift in Sources */,
 				B8CC72FA2859825600F3B4FC /* Constants.swift in Sources */,
@@ -388,7 +396,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -418,7 +426,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
