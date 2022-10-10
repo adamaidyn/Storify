@@ -153,7 +153,7 @@ extension PlanOptionsVC {
             
             guard let _ = offerings.all.first?.value.availablePackages.first else { return }
             
-            guard let monthlyPackage = offerings.offering(identifier: Identifiers.RevenueCatIDs.offeringsID)?.availablePackages[0] else { return } // Monthly package
+            guard let monthlyPackage = offerings.offering(identifier: IdentifiersK.RevenueCatIDs.offeringsID)?.availablePackages[0] else { return } // Monthly package
             
             completion(monthlyPackage)
         }
@@ -165,7 +165,7 @@ extension PlanOptionsVC {
                         
             guard let _ = offerings.current?.availablePackages[0] else { return }
             
-            guard let yearlyPackage = offerings.offering(identifier: Identifiers.RevenueCatIDs.offeringsID)?.availablePackages[1] else { return } // Yearly package
+            guard let yearlyPackage = offerings.offering(identifier: IdentifiersK.RevenueCatIDs.offeringsID)?.availablePackages[1] else { return } // Yearly package
             
             print("Yearly available package \(yearlyPackage)")
             
@@ -204,7 +204,7 @@ extension PlanOptionsVC {
                 self?.paymentDispatchGroup.leave()
             }
             
-            if info?.entitlements[Identifiers.RevenueCatIDs.yearlyEntitlementID]?.isActive == true || info?.entitlements[Identifiers.RevenueCatIDs.monthlyEntitlementID]?.isActive == true {
+            if info?.entitlements[IdentifiersK.RevenueCatIDs.yearlyEntitlementID]?.isActive == true || info?.entitlements[IdentifiersK.RevenueCatIDs.monthlyEntitlementID]?.isActive == true {
                 self?.unlockFeatures()
                 
                 self?.dismiss(animated: true)
@@ -219,7 +219,7 @@ extension PlanOptionsVC {
             
             self?.unlockFeatures()
             
-            if info.entitlements.all[Identifiers.RevenueCatIDs.monthlyEntitlementID]?.isActive == true || info.entitlements.all[Identifiers.RevenueCatIDs.monthlyEntitlementID]?.isActive == true {
+            if info.entitlements.all[IdentifiersK.RevenueCatIDs.monthlyEntitlementID]?.isActive == true || info.entitlements.all[IdentifiersK.RevenueCatIDs.monthlyEntitlementID]?.isActive == true {
  
                 if self?.ifComingFromHome == true {
                     self?.paymentDispatchGroup.leave()
@@ -237,7 +237,7 @@ extension PlanOptionsVC {
             guard let info = info, error == nil else { return }
             
             // Monthly sub is active
-            if info.entitlements.all[Identifiers.RevenueCatIDs.monthlyEntitlementID]?.isActive == true {
+            if info.entitlements.all[IdentifiersK.RevenueCatIDs.monthlyEntitlementID]?.isActive == true {
                 self?.planOptionsUserDefaults.set(true, forKey: K.VariablesIDs.planOptionsUserDefaultsKey)
                 
                 DispatchQueue.main.async {
@@ -249,7 +249,7 @@ extension PlanOptionsVC {
                     self?.subscribedLabel.isHidden = false
                 }
                 // Yearly sub is active
-            } else if info.entitlements.all[Identifiers.RevenueCatIDs.yearlyEntitlementID]?.isActive == true {
+            } else if info.entitlements.all[IdentifiersK.RevenueCatIDs.yearlyEntitlementID]?.isActive == true {
                 self?.planOptionsUserDefaults.set(true, forKey: K.VariablesIDs.planOptionsUserDefaultsKey)
                 
                 DispatchQueue.main.async {
